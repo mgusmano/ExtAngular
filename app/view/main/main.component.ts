@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-//import { provideRouter, RouterConfig }  from '@angular/router';
-//import { ROUTER_DIRECTIVES } from '@angular/router';
-//import '../../rxjs-extensions';
 
 @Component({
   selector: 'my-app',

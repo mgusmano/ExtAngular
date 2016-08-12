@@ -20,6 +20,8 @@ import { BasicChartComponent } from './view/chart/basic-chart.component';
 import { BasicCalendarComponent } from './view/calendar/basic-calendar.component';
 import { AnalyzeComponent } from './view/analyze/analyze.component';
 import { PivotComponent } from './view/pivot/pivot.component';
+import { D3TreeMapComponent } from './view/d3/d3-treemap.component';
+import { D3SunburstComponent } from './view/d3/d3-sunburst.component';
 
 import { ExtJS2 } from './extangular/extjs2';
 import { ExtJS } from './extangular/extjs';
@@ -32,7 +34,7 @@ import { ExtJSPivotGrid } from './extangular/extjs.pivotgrid';
   declarations: [ 
 		MainComponent, NavigationComponent, 
 		GridComponent, BasicComponent, SimpleComponent, ButtonComponent, BasicCalendarComponent,
-		BasicChartComponent, AnalyzeComponent, PivotComponent, 
+		BasicChartComponent, AnalyzeComponent, PivotComponent, D3TreeMapComponent, D3SunburstComponent,
 		ExtJS2, ExtJS, ExtJSButton, ExtJSGrid, ExtJSPivotGrid 
 	],
   // providers: [

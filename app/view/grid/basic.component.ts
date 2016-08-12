@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ExtJSGrid } from '../../extangular/extjs.grid';
 import { CompanyStore } from '../../store/company.store';
 
 @Component({
   selector: 'my-grid',
-	directives: [ExtJSGrid],
   styleUrls: ['/app/view/grid/basic.component.css'],
 	template: `
-<div style="height:100%;width:100%;">
-	<extjs-grid #theGridSales
-		fit
-		[(title)]="title"
-		[columns]= "columns" 
-		[config]="config"
-		[store]="store"
-	></extjs-grid>
-</div>
+		<div style="height:100%;width:100%;">
+			<extjs-grid #theGridSales
+				fit
+				[(title)]="title"
+				[columns]= "columns" 
+				[config]="config"
+				[store]="store"
+			></extjs-grid>
+		</div>
 `
 })
 export class BasicComponent {
@@ -68,19 +66,20 @@ export class BasicComponent {
 
 	//renderChange: function (value) {
 	private renderChange(value, metaData, record, rowIndex, colIndex, store, view) {
-			return this.renderSign(value, '0.00', view.grid);
+		return this.renderSign(value, '0.00', view.grid);
 	};
 
 	private renderPercent(value, metaData, record, rowIndex, colIndex, store, view) {
-			return this.renderSign(value, '0.00%', view.grid);
+		return this.renderSign(value, '0.00%', view.grid);
 	};
 
 	//renderSign: function (value, format, grid) {
 	private renderSign(value, format, grid) {
 			var text = Ext.util.Format.number(value, format),
-					tpl = grid.signTpl,
-					data = grid.data;
+					tpl = grid.signTpl;
+					//data = grid.data;
 
+			var data:any = {};
 			if (Math.abs(value) > 0.1) {
 					if (!tpl) {
 							grid.signTpl = tpl = grid.getView().lookupTpl('signTpl');
@@ -92,7 +91,7 @@ export class BasicComponent {
 
 					text = tpl.apply(data);
 			}
-
+console.log(text);
 			return text;
 	};
 
@@ -100,14 +99,15 @@ export class BasicComponent {
 		this.title = 'Basic Grid';
 
 		this.config = {
+			style: { border: '10px solid #e9e9e9' },
 			stateful: true,
 			collapsible: true,
 			multiSelect: true,
 			stateId: 'stateGrid',
 			headerBorders: false,
-			//signTpl: '<span style="' +
-			//				'color:{value:sign(\'#cf4c35\',\'#73b51e\')}"' +
-			//		'>{text}</span>',
+			signTpl: '<span style="' +
+							'color:{value:sign(\'#cf4c35\',\'#73b51e\')}"' +
+					'>{text}</span>',
 			viewConfig: {
 					signTpl: '<span style="color:{value:sign(\'#cf4c35\',\'#73b51e\')}">{text}</span>',
 					enableTextSelection: true
@@ -139,9 +139,9 @@ export class BasicComponent {
 		this.columns = [
 			{ text: 'Company', flex: 1, sortable: false, dataIndex: 'name' }, 
 			{ text: 'Price', width: 95, sortable: true, formatter: 'usMoney', dataIndex: 'price' }, 
-			{ text: 'Change', width: 80, sortable: true, dataIndex: 'change', scope: this, renderer: this.renderChange, }, //renderer: 'renderChange', 
-			{ text: '% Change', width: 100, sortable: true, dataIndex: 'pctChange', scope: this, renderer: 'renderPercent' }, 
-			{ text: 'Last Updated', width: 115, sortable: true, formatter: 'date("m/d/Y")', dataIndex: 'lastChange' }, 
+			{ text: 'Change', width: 80, sortable: true, dataIndex: 'change', scope: this, renderer: this.renderChange, },
+			{ text: '% Change', width: 100, sortable: true, dataIndex: 'pctChange', scope: this, renderer: 'renderPercent' },
+			{ text: 'Last Updated', width: 115, sortable: true, formatter: 'date("m/d/Y")', dataIndex: 'lastChange' },
 			{
 					menuDisabled: true,
 					sortable: false,
@@ -150,7 +150,6 @@ export class BasicComponent {
 					items: ['@sell', '@buy']
 			}
 		];
-		//this.store = new CompanyStore().extjsObject;
 		this.store = new CompanyStore({}).extjsObject;
 	}
 

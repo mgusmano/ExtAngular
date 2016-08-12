@@ -5,13 +5,11 @@ import { SalesStore } from '../../store/sales.store';
 	template: `
 		<div style="height:100%;width:100%;">
 
-			<div style="height:10%;width:100%;">
-				<extjs [xtype]='"combo"' 
-					[config]='combo'
-				></extjs>
+			<div style="height:6%;width:100%;">
+				<extjs [xtype]='"combo"' [config]='combo' ></extjs>
 			</div>
 
-			<div style="height:45%;width:100%;">
+			<div style="height:47%;width:100%;">
 				<extjs-pivotgrid #thePivotGrid
 					[leftAxis]="leftAxisPivotGrid" 
 					[topAxis]="topAxisPivotGrid" 
@@ -24,11 +22,8 @@ import { SalesStore } from '../../store/sales.store';
 				></extjs-pivotgrid>
 			</div>
 
-			<div style="height:45%;width:100%;">
-				<extjs [xtype]='"cartesian"' fit 
-					[config]='cartesian'
-					(ready)="readyCartesian($event)"
-				></extjs>
+			<div style="height:47%;width:100%;">
+				<extjs [xtype]='"cartesian"' fit [config]='cartesian' (ready)="readyCartesian($event)" ></extjs>
 			</div>
 
 		</div>
@@ -82,9 +77,32 @@ export class AnalyzeComponent {
 
 	private cartesianConstruct() {
 		this.cartesian = { 
+			border: false,
 			style: { border: '10px solid white' },
 			interactions: ['itemhighlight'],
-			legend: { docked: 'top' },
+			legend2: {
+				//type: 'dom',
+				frame: true,
+				docked: 'top', 
+				border: 5,
+				style: {
+						borderColor: 'red',
+						borderStyle: 'solid'
+				}
+			},
+        legend: {
+            type: 'sprite',
+            docked: 'top',
+            marker: {
+                type: 'square'
+            },
+            border: {
+                radius: 10
+            }
+        },
+
+
+
 
 			series: { 
 				id: '1', 
@@ -142,14 +160,6 @@ export class AnalyzeComponent {
 			plugins: [{ ptype: 'pivotdrilldown' }],
 			rowGrandTotalsPosition: 'none'
 		};
-	}
-
-	readyPivotGrid(thePivotGrid) {
-		this.thePivotGrid = thePivotGrid;
-	}
-
-	readyCartesian(theCartesian) {
-		this.theCartesian = theCartesian;
 	}
 
 	private onReportComboChange(combo, newValue, oldValue, eOpts) {
@@ -223,6 +233,14 @@ export class AnalyzeComponent {
 		chart.addSeries(series);
 		chart.setStore(store);
 		//chart.setStore(chartSeriesStore);
+	}
+
+	readyPivotGrid(thePivotGrid) {
+		this.thePivotGrid = thePivotGrid;
+	}
+
+	readyCartesian(theCartesian) {
+		this.theCartesian = theCartesian;
 	}
 
 }

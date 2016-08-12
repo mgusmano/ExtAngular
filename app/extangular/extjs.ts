@@ -66,11 +66,28 @@ export class ExtJS {
 					}
 				}
 			};
-			if (me.fit === true) {o.plugins = [ 'fittoparent' ]; } else {o.height = 300; };
+			//o.plugins = [{ ptype: 'fittoparent' }]; 
+			//o.height = 800; 
+
+
+			//if (me.fit === true) {
+			//	o.plugins = [ 'fittoparent' ]; 
+			//} else {
+			//	o.height = 300; 
+			//};
+			if (me.plugins !== [] ) {o.plugins = me.plugins; };
+			if (me.fit === true ) {
+				if (o.plugins != undefined) {
+					o.plugins.push({ ptype: 'fittoparent' });
+				} else {
+					o.plugins = [{ ptype: 'fittoparent' }]; 
+				}
+			} else {o.height = 300; };
+
+
 			if (me.config !== {} ) {
 				Ext.apply(o, me.config);
 			};
-			//Ext.create(o);
 			me.extjsObject = Ext.create(o);
 			me.ready.next(me);
 		}

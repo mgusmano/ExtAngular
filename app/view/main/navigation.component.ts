@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 			<img class="logoImage" src="ExtAngular.png" alt="ExtAngular" >
 			<span class="logoText">ExtAngular</span>
 			</div>
-			<extjs #theTreeList xstyle="height:200px;"
+			<extjs #theTreeList
 				fit
 				[xtype]= "xtype" 
 				[config]="config"
@@ -35,6 +35,8 @@ export class NavigationComponent {
 						{ text: 'Grid', leaf: true, iconCls: 'fa fa-home', link: 'grid' },
 						{ text: 'Basic Chart', leaf: true, iconCls: 'fa fa-home', link: 'basicchart' },
 						{ text: 'Basic Calendar', leaf: true, iconCls: 'fa fa-home', link: 'basiccalendar' },
+						{ text: 'D3 TreeMap', leaf: true, iconCls: 'fa fa-home', link: 'd3treemap' },
+						{ text: 'D3 Sunburst', leaf: true, iconCls: 'fa fa-home', link: 'd3sunburst' },
 						{ text: 'Agency', expanded: true, iconCls: 'fa fa-table', children: [
 								{ text: 'Agency Grid', leaf: true, iconCls: 'fa fa-table', link:'simple' },
 								{ text: 'Agency Pivot', leaf: true, iconCls: 'fa fa-list', link:'basic' },
