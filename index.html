@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>ExtAngular</title>	
+	<base href="/">
+	<meta charset="utf-8" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="icon" type="image/png" href="favicon.ico">
+	<link href="styles.css" rel="stylesheet"/>
+	<!-- <link rel="stylesheet" href="ext-6.2.0.beta/build/classic/theme-triton/resources/theme-triton-all.css"/> -->
+	<link rel="stylesheet" href="senchacss/Ext620757-all.css"/>
+	<link rel="stylesheet" href="ext-6.2.0.beta/packages/pivot/build/classic/triton/resources/pivot-all.css"/>
+	<link rel="stylesheet" href="ext-6.2.0.beta/packages/calendar/build/classic/triton/resources/calendar-all.css"/>
+
+	<script src="ext-6.2.0.beta/build/ext-all.js"></script>
+	<script src="app/extangular/fittoparent.js"></script>
+	<script src="ext-6.2.0.beta/packages/exporter/build/${toolkit.name}/exporter.js"></script>
+	<script src="ext-6.2.0.beta/packages/pivot/build/classic/pivot.js"></script>
+	<script src="ext-6.2.0.beta/build/packages/charts/classic/charts-debug.js"></script>
+	<script src="ext-6.2.0.beta/packages/calendar/build/classic/calendar.js"></script>
+	
+	<script src="node_modules/core-js/client/shim.min.js"></script>
+	<script src="node_modules/zone.js/dist/zone.js"></script>
+	<script src="node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="systemjs.config.js"></script>
+	<script>
+		System.import('app').catch(function(err){ console.error('from index.html: ' + err); });
+	</script>
+</head>
+<body>
+	<my-app>Loading...</my-app>
+</body>
+</html>

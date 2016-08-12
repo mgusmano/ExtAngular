@@ -1,0 +1,27 @@
+.array-grid-buy-col {
+		color: blue;
+		background-color: red;
+		xbackground-image: url(images/icons/fam/accept.png);
+}
+.xarray-grid-sell-col {
+		background-image: url(images/icons/fam/delete.gif);
+}
+.xarray-grid-alert-col {
+		background-image: url(images/icons/fam/error.png);
+}
+
+.array-grid-buy-col:before {
+		font: 18px/1 FontAwesome;
+		color: #81cb31;
+		content: "\f056";
+}
+.array-grid-sell-col:before {
+		font: 18px/1 FontAwesome;
+		color: #dd6550;
+		content: "\f056";
+}
+.array-grid-alert-col:before {
+		font: 18px/1 FontAwesome;
+		color: #ffc839;
+		content: "\f056";
+}
