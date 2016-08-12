@@ -82,7 +82,10 @@ export class ExtJS {
 				} else {
 					o.plugins = [{ ptype: 'fittoparent' }]; 
 				}
-			} else {o.height = 300; };
+			} 
+			else {
+			//	o.height = 300; 
+			};
 
 
 			if (me.config !== {} ) {

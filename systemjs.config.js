@@ -8,6 +8,7 @@
     'extjs-angular2':             'app/extjs-angular2',
     'store':             					'build/development/store',
     'app':                        'build/development', // 'dist',
+    //'appM':                       'build/development', // 'dist',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'ng2-bootstrap': 							'node_modules/ng2-bootstrap',
@@ -17,6 +18,7 @@
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'app.js',  defaultExtension: 'js' },
+    //'appM':                       { main: 'appM.js',  defaultExtension: 'js' },
     'extjs-angular2':             { defaultExtension: 'js' },
      'moment':                     { defaultExtension: 'js' },
      "ng2-bootstrap": 						{ "defaultExtension": "js" },
